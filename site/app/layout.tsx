@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "../components/Navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default function RootLayout({
         <footer className="bg-[#e0e0e0] py-12 px-4 mt-auto">
           <div className="container mx-auto text-center">
              <div className="flex flex-col items-center gap-4">
-                <Logo className="opacity-50 grayscale" />
+                <p className="text-xl font-extralight tracking-tighter text-gray-400 lowercase leading-none">decorama</p>
                 <p className="text-xs text-gray-500 tracking-widest mt-4">
                   © {new Date().getFullYear()} DECORAMA DESIGNERS. ALL RIGHTS RESERVED.
                 </p>

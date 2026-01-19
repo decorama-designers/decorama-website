@@ -1,5 +1,3 @@
-import { Logo } from "@/components/Navbar";
-
 export default function AboutPage() {
   return (
     <div>

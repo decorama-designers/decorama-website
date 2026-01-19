@@ -1,4 +1,4 @@
-import { products } from "@/lib/data";
+import { products } from "../../../lib/data";
 import { notFound } from "next/navigation";
 import { Mail, ChevronLeft } from "lucide-react";
 import Link from "next/link";
