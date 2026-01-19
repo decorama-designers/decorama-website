@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { Navbar } from "@/components/Navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Next.js App",
-  description: "Created with Next.js",
+  title: "decorama designers | Exquisite Style Defined",
+  description: "Bespoke furniture and interior decorating services by decorama designers.",
 };
 
 export default function RootLayout({
@@ -13,7 +14,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="antialiased font-sans text-gray-900 min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <footer className="bg-[#e0e0e0] py-12 px-4 mt-auto">
+          <div className="container mx-auto text-center">
+             <div className="flex flex-col items-center gap-4">
+                <Logo className="opacity-50 grayscale" />
+                <p className="text-xs text-gray-500 tracking-widest mt-4">
+                  © {new Date().getFullYear()} DECORAMA DESIGNERS. ALL RIGHTS RESERVED.
+                </p>
+             </div>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
