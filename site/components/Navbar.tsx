@@ -24,12 +24,12 @@ export function Navbar() {
     <header className="w-full bg-white">
       <div className="container mx-auto px-4 py-6 flex flex-col items-center relative">
         <div className="absolute right-4 top-6 flex gap-3 text-white">
-          <div className="bg-gray-800 p-1.5 rounded-full cursor-pointer hover:bg-gray-600 transition">
+          <a href="https://www.facebook.com/decoramadesigners/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-1.5 rounded-full cursor-pointer hover:bg-gray-600 transition">
             <Facebook size={18} fill="currentColor" />
-          </div>
-          <div className="bg-gray-800 p-1.5 rounded-full cursor-pointer hover:bg-gray-600 transition">
+          </a>
+          <a href="https://www.instagram.com/decoramadesigners/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-1.5 rounded-full cursor-pointer hover:bg-gray-600 transition">
             <Instagram size={18} />
-          </div>
+          </a>
         </div>
         
         <Link href="/">
