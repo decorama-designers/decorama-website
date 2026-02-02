@@ -1,17 +1,53 @@
+"use client";
+
+import { useState } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+
 export default function CustomDesignsPage() {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
   const designs = [
-    { id: 1, image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=600&auto=format&fit=crop" },
-    { id: 2, image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?q=80&w=600&auto=format&fit=crop" },
-    { id: 3, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=600&auto=format&fit=crop" },
-    { id: 4, image: "https://images.unsplash.com/photo-1505693419148-ad1913ac147d?q=80&w=600&auto=format&fit=crop" },
+    { id: 1, image: "/custom_designs/Deco-images-2017-a.jpg" },
+    { id: 2, image: "/custom_designs/Deco-images-2017-b-1024x747.jpg" },
+    { id: 3, image: "/custom_designs/Decorama-117-2.jpg" },
+    { id: 4, image: "/custom_designs/Decorama-210.jpg" },
+    { id: 5, image: "/custom_designs/Decorama-241.jpg" },
+    { id: 6, image: "/custom_designs/Decorama-258.jpg" },
+    { id: 7, image: "/custom_designs/IMG_3057-768x1024.jpg" },
+    { id: 8, image: "/custom_designs/IMG_4222-768x1024.jpg" },
+    { id: 9, image: "/custom_designs/IMG_4394-1024x768.jpg" },
+    { id: 10, image: "/custom_designs/IMG_5284-1024x768.jpg" },
+    { id: 11, image: "/custom_designs/IMG_7264-1024x768.jpg" },
+    { id: 12, image: "/custom_designs/IMG_8071-1024x768.jpg" },
+    { id: 13, image: "/custom_designs/IMG_9163-1024x768.jpg" },
+    { id: 14, image: "/custom_designs/IMG_9326.jpeg" },
+    { id: 15, image: "/custom_designs/IMG_9556-1024x768.jpg" },
+    { id: 16, image: "/custom_designs/IMG_9610-1024x768.jpg" },
+    { id: 17, image: "/custom_designs/IMG_9618-1024x1024.jpg" },
+    { id: 18, image: "/custom_designs/IMG_9944-1024x768.jpg" },
+    { id: 19, image: "/custom_designs/Long-Island.jpg" },
   ];
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex + 1) % designs.length);
+    }
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex - 1 + designs.length) % designs.length);
+    }
+  };
 
   return (
     <div>
       <section className="relative h-[400px] w-full">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=2000&auto=format&fit=crop"
+            src="/custom_designs/Deco-images-2017-a.jpg"
             alt="Custom Designs"
             className="w-full h-full object-cover"
           />
@@ -30,17 +66,60 @@ export default function CustomDesignsPage() {
 
       <section className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {designs.map((design) => (
-            <div key={design.id} className="aspect-square bg-gray-100 overflow-hidden border border-gray-200">
+          {designs.map((design, index) => (
+            <div 
+              key={design.id} 
+              className="aspect-square bg-gray-100 overflow-hidden border border-gray-200 cursor-pointer group"
+              onClick={() => setSelectedIndex(index)}
+            >
               <img
                 src={design.image}
                 alt={`Custom design ${design.id}`}
-                className="w-full h-full object-cover hover:scale-105 transition duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
               />
             </div>
           ))}
         </div>
       </section>
+
+      {/* Lightbox */}
+      {selectedIndex !== null && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedIndex(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 text-white hover:text-gray-300 transition"
+            onClick={() => setSelectedIndex(null)}
+          >
+            <X size={32} />
+          </button>
+          
+          <button 
+            className="absolute left-6 text-white hover:text-gray-300 transition"
+            onClick={handlePrev}
+          >
+            <ChevronLeft size={48} />
+          </button>
+
+          <img 
+            src={designs[selectedIndex].image} 
+            alt="Large view"
+            className="max-w-full max-h-full object-contain shadow-2xl"
+          />
+
+          <button 
+            className="absolute right-6 text-white hover:text-gray-300 transition"
+            onClick={handleNext}
+          >
+            <ChevronRight size={48} />
+          </button>
+
+          <div className="absolute bottom-6 text-white text-sm font-light tracking-widest">
+            {selectedIndex + 1} / {designs.length}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
