@@ -1,23 +1,64 @@
+"use client";
+
+import { useState } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+
 export default function ShowroomStockPage() {
-  const stockItems = [
-    { id: 1, image: "https://images.unsplash.com/photo-1538688525198-9b88f6f50126?q=80&w=600&auto=format&fit=crop" },
-    { id: 2, image: "https://images.unsplash.com/photo-1581783898377-1c85bf937427?q=80&w=600&auto=format&fit=crop" },
-    { id: 3, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=600&auto=format&fit=crop" },
-    { id: 4, image: "https://images.unsplash.com/photo-1506485338423-2283912932e8?q=80&w=600&auto=format&fit=crop" },
-    { id: 5, image: "https://images.unsplash.com/photo-1582201943021-e8e5b3061b33?q=80&w=600&auto=format&fit=crop" },
-    { id: 6, image: "https://images.unsplash.com/photo-1612152605347-f93296cb657d?q=80&w=600&auto=format&fit=crop" },
-    { id: 7, image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?q=80&w=600&auto=format&fit=crop" },
-    { id: 8, image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=600&auto=format&fit=crop" },
-    { id: 9, image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600&auto=format&fit=crop" },
-    { id: 10, image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=600&auto=format&fit=crop" },
-  ];
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const images = [
+    "Coffee-Table-1021x1024.jpg",
+    "Coffee-Table-2-1024x1024.jpg",
+    "Decorama-057.jpg",
+    "Decorama-072.jpg",
+    "Decorama-075.jpg",
+    "Decorama-110.jpg",
+    "Decorama-152.jpg",
+    "Decorama-156-2.jpg",
+    "Decorama-166.jpg",
+    "Decorama-182-2-1.jpg",
+    "Decorama-224.jpg",
+    "Decorama-238.jpg",
+    "Decorama-246.jpg",
+    "Decorama-270.jpg",
+    "Decorama-275.jpg",
+    "Decorama-356.jpg",
+    "Fang-Wall-Mask-Long-1024x1024.jpg",
+    "home-projects.jpg",
+    "IMG_0017-1024x625.jpg",
+    "IMG_9912-743x1024.jpg",
+    "IMG_9923-1024x683.jpg",
+    "IMG_9927-1024x662.jpg",
+    "IMG_9931-707x1024.jpg",
+    "IMG_9993-683x1024.jpg",
+    "nosestatue.jpg",
+    "one.jpg",
+    "ORCHID-IMAGE-CHAIR-TABLE-768x1024.jpg",
+    "ORN5003-BENCH-BLACK-TEAKWOOD-BLACK-LEATHER-768x1024.jpg",
+    "Sideboard-1024x1024.jpg",
+    "umbrella-chair-1018x1024.jpg"
+  ].map(img => `/showroom/${img}`);
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex + 1) % images.length);
+    }
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
+    }
+  };
 
   return (
     <div>
       <section className="relative h-[400px] w-full">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=2000&auto=format&fit=crop"
+            src="/showroom/nosestatue.jpg"
             alt="Showroom Stock"
             className="w-full h-full object-cover blur-[2px] grayscale"
           />
@@ -34,17 +75,60 @@ export default function ShowroomStockPage() {
 
       <section className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {stockItems.map((item) => (
-            <div key={item.id} className="aspect-square bg-gray-100 overflow-hidden border border-gray-200">
+          {images.map((src, index) => (
+            <div 
+              key={index} 
+              className="aspect-square bg-gray-100 overflow-hidden border border-gray-200 cursor-pointer group"
+              onClick={() => setSelectedIndex(index)}
+            >
               <img
-                src={item.image}
-                alt={`Stock item ${item.id}`}
-                className="w-full h-full object-cover hover:scale-110 transition duration-500"
+                src={src}
+                alt={`Stock item ${index + 1}`}
+                className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
               />
             </div>
           ))}
         </div>
       </section>
+
+      {/* Lightbox */}
+      {selectedIndex !== null && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedIndex(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 text-white hover:text-gray-300 transition"
+            onClick={() => setSelectedIndex(null)}
+          >
+            <X size={32} />
+          </button>
+          
+          <button 
+            className="absolute left-6 text-white hover:text-gray-300 transition"
+            onClick={handlePrev}
+          >
+            <ChevronLeft size={48} />
+          </button>
+
+          <img 
+            src={images[selectedIndex]} 
+            alt="Large view"
+            className="max-w-full max-h-full object-contain shadow-2xl"
+          />
+
+          <button 
+            className="absolute right-6 text-white hover:text-gray-300 transition"
+            onClick={handleNext}
+          >
+            <ChevronRight size={48} />
+          </button>
+
+          <div className="absolute bottom-6 text-white text-sm font-light tracking-widest">
+            {selectedIndex + 1} / {images.length}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

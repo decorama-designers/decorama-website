@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
-import { Facebook, Instagram, ShoppingCart } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 import { cn } from "../lib/utils";
 
 const navItems = [
@@ -51,11 +51,6 @@ export function Navbar() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/cart" className="px-4 py-3 inline-block hover:bg-[#808080]">
-                <ShoppingCart size={14} />
-              </Link>
-            </li>
           </ul>
         </nav>
       </div>

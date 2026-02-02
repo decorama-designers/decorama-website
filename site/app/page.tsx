@@ -32,12 +32,12 @@ export default function Home() {
       <section className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { name: "Showroom Stock", image: "/nosestatue.jpg" },
-            { name: "Exclusive Range", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=800&auto=format&fit=crop" },
-            { name: "Blinds", image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop" },
-            { name: "Projects", image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop" },
+            { name: "Showroom Stock", image: "/nosestatue.jpg", href: "/showroom" },
+            { name: "Exclusive Range", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=800&auto=format&fit=crop", href: "/custom" },
+            { name: "Blinds", image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop", href: "/blinds" },
+            { name: "Projects", image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop", href: "/projects" },
           ].map((cat) => (
-            <Link key={cat.name} href={`/${cat.name.toLowerCase().replace(" ", "-")}`} className="group cursor-pointer">
+            <Link key={cat.name} href={cat.href} className="group cursor-pointer">
               <div className="aspect-square overflow-hidden bg-gray-100 mb-4 border border-gray-200 shadow-sm">
                 <img
                   src={cat.image}
