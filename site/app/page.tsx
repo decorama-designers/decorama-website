@@ -32,7 +32,7 @@ export default function Home() {
       <section className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { name: "Showroom Stock", image: "https://images.unsplash.com/photo-1538688525198-9b88f6f50126?q=80&w=800&auto=format&fit=crop" },
+            { name: "Showroom Stock", image: "/nosestatue.jpg" },
             { name: "Exclusive Range", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=800&auto=format&fit=crop" },
             { name: "Blinds", image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop" },
             { name: "Projects", image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop" },
