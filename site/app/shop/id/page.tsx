@@ -9,17 +9,16 @@ export default function ProductPageUnderConstruction() {
         <Hammer className="mx-auto mb-6 text-black" size={48} />
         <h1 className="text-4xl font-light mb-4">Under Construction</h1>
         <p className="text-lg text-gray-600 mb-8">
-          Sorry, this page is currently under construction. We’re working hard to bring it to you soon!
+          Sorry, this product page is currently under construction. We’re working hard to bring it to you soon!
         </p>
 
         <Link
-          href="/"
+          href="/shop"
           className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-gray-400 hover:text-black transition-colors"
         >
-          <ChevronLeft size={16} /> BACK TO HOME
+          <ChevronLeft size={16} /> BACK TO SHOP
         </Link>
       </div>
     </div>
   );
 }
-
