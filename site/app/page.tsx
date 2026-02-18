@@ -8,7 +8,7 @@ export default function Home() {
       <section className="relative h-[600px] w-full">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=2000&auto=format&fit=crop"
+            src="ailounge.jpg"
             alt="Luxury Interior"
             className="w-full h-full object-cover"
           />
