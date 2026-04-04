@@ -1,6 +1,7 @@
 export default function ContactPage() {
-  const address = "Unit 5 The Refinery, cnr North Reef Road, George Allen St, Germiston, 1401";
-  const mapUrl = `https://www.google.com/maps/embed/v1/place?key=REPLACE_WITH_YOUR_API_KEY&q=${encodeURIComponent(address)}`;
+  const mapsQuery = "Decorama Designers & Decorama Blinds";
+  const openInMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`;
+  const embedMapUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&output=embed`;
 
   return (
     <div>
@@ -13,7 +14,47 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-20">
+      <section className="container mx-auto px-4 pt-12 pb-20">
+        <div className="text-sm text-gray-500 font-light space-y-1 pt-2 mb-12">
+          {/* Contact */}
+          <p>Tel.</p>
+            <p>
+            <a href="tel:+27114553018" className="hover:text-black transition">
+              +27 11 455 3018
+            </a>
+            /
+            <a href="tel:+27114553019" className="hover:text-black transition">
+              9
+            </a>
+            </p>
+            <p>
+            <a href="tel:+27118289094" className="hover:text-black transition">
+              +27 11 828 9094
+            </a>
+            /
+            <a href="tel:+27118289095" className="hover:text-black transition">
+              5
+            </a>
+            </p>
+            <p>Cel.</p>
+            <p>
+            <a href="tel:+27787302445" className="hover:text-black transition">
+              +27 78 730 2445
+            </a>
+            </p>
+          <p>Email:</p>
+          <p><a href="mailto:designers@decorama.co.za" className="hover:text-black transition">designers@decorama.co.za</a></p>
+           <p><a href="mailto:decorama@iafrica.com" className="hover:text-black transition">decorama@iafrica.com</a></p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-10 max-w-5xl mx-auto mt-12 pb-10">
+          {/* Showroom */}
+          <h2 className="text-xl font-medium tracking-wide text-gray-800">Showroom:</h2>
+            <div className="text-sm text-gray-500 leading-relaxed font-light space-y-1">
+              <p>NEW LOCATION LOADING...</p>
+            </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-1 gap-20 max-w-5xl mx-auto mb-20">
           {/* Warehouse */}
           <div className="space-y-6">
@@ -24,11 +65,7 @@ export default function ContactPage() {
               <p>Wilbart Ext 1</p>
               <p className="italic">(across from Union Tiles)</p>
             </div>
-            <div className="text-sm text-gray-500 font-light space-y-1 pt-4">
-              <p>Tel. +27 11 828 9094/5</p>
-              <p>Fax. +27 11 828 6877</p>
-              <p>Email: <a href="mailto:decorama@iafrica.com" className="hover:text-black transition">decorama@iafrica.com</a></p>
-            </div>
+
             <div className="w-full h-64 bg-gray-100 border border-gray-200 mt-8 overflow-hidden">
 			<iframe
 			  width="100%"
@@ -37,10 +74,21 @@ export default function ContactPage() {
 			  loading="lazy"
 			  allowFullScreen
 			  referrerPolicy="no-referrer-when-downgrade"
-			  src="https://www.google.com/maps?q=The+Refinery+Business+Park+George+Allen+Street+Bedfordview+Gauteng+South+Africa&output=embed"
+        src={embedMapUrl}
 			></iframe>
+              <p className="pt-2">
+                <a
+                  href={openInMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-black transition"
+                >
+                  Open in Maps
+                </a>
+              </p>
             </div>
-          </div>
+
+         </div>
         </div>
       </section>
     </div>

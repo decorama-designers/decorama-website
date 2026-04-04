@@ -1,9 +1,18 @@
 RewriteEngine On
 
-# 1. Remove .html from the URL (Optional but cleaner)
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html [NC,L]
+# Do NOT rewrite real files
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
 
-# 2. Handle 404s by showing your custom 404 page
+# If a matching .html file exists, serve it
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# Custom 404 page
 ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+  </FilesMatch>
+</IfModule>

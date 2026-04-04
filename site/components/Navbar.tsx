@@ -13,7 +13,7 @@ const navItems = [
   { name: "SHOWROOM STOCK", href: "/showroom" },
   { name: "PROJECTS", href: "/projects" },
   { name: "CUSTOM DESIGNS", href: "/custom" },
-  { name: "BLINDS", href: "/blinds" },
+  { name: "WINDOW GALLERY", href: "/blinds" },
   { name: "CONTACT US", href: "/contact" },
 ];
 
@@ -23,7 +23,7 @@ export function Navbar() {
   return (
     <header className="w-full bg-white">
       <div className="container mx-auto px-4 py-6 flex flex-col items-center relative">
-        <div className="absolute right-4 top-6 flex gap-3 text-white">
+        <div className="absolute right-4 top-4 sm:top-6 flex gap-3 text-white z-20">
           <a href="https://www.facebook.com/decoramadesigners/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-1.5 rounded-full cursor-pointer hover:bg-gray-600 transition">
             <Facebook size={18} fill="currentColor" />
           </a>
@@ -32,7 +32,7 @@ export function Navbar() {
           </a>
         </div>
         
-        <Link href="/">
+        <Link href="/" className="mt-4 sm:mt-0">
           <Logo className="mb-6 scale-110" />
         </Link>
 
