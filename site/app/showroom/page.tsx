@@ -11,7 +11,6 @@ export default function ShowroomStockPage() {
     "Coffee-Table-2-1024x1024.jpg",
     "Decorama-057.jpg",
     "Decorama-072.jpg",
-    "Decorama-075.jpg",
     "Decorama-110.jpg",
     "Decorama-152.jpg",
     "Decorama-156-2.jpg",
@@ -58,14 +57,14 @@ export default function ShowroomStockPage() {
       <section className="relative h-[400px] w-full">
         <div className="absolute inset-0">
           <img
-            src="/showroom/nosestatue.jpg"
+            src="/showroom/Decorama-075.jpg"
             alt="Showroom Stock"
-            className="w-full h-full object-cover blur-[2px] grayscale"
+            className="w-full h-full object-cover object-[center_60%]"
           />
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-black/60 text-white p-12 max-w-lg text-center backdrop-blur-sm border-white/20 border">
+          <div className="bg-black/40 text-white p-12 max-w-lg text-center border-white/20 border">
             <h1 className="text-4xl font-light tracking-tight mb-4">Showroom Stock</h1>
             <div className="w-20 h-[1px] bg-white mx-auto mb-4"></div>
             <p className="text-sm italic font-light tracking-wide">Continuously sourcing new and fresh trends</p>

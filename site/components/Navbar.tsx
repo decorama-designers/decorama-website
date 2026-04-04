@@ -9,12 +9,12 @@ import { cn } from "../lib/utils";
 const navItems = [
   { name: "HOME", href: "/" },
   { name: "ABOUT US", href: "/about" },
-  { name: "SHOP", href: "/shop" },
   { name: "SHOWROOM STOCK", href: "/showroom" },
   { name: "PROJECTS", href: "/projects" },
-  { name: "CUSTOM DESIGNS", href: "/custom" },
+  { name: "EXCLUSIVE RANGE", href: "/custom" },
   { name: "WINDOW GALLERY", href: "/blinds" },
   { name: "CONTACT US", href: "/contact" },
+  { name: "SHOP", href: "/shop" },
 ];
 
 export function Navbar() {

@@ -4,14 +4,14 @@ export default function AboutPage() {
       <section className="relative h-[400px] w-full">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=2000&auto=format&fit=crop"
+            src="/home/Screenshot%202024-05-29%20102128.png"
             alt="Interior accessories"
-            className="w-full h-full object-cover  opacity-60"
+            className="h-full w-full object-cover "
           />
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-black/30" />
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-black/60 text-white p-12 max-w-lg text-center backdrop-blur-sm border-white/20 border">
+          <div className="bg-black/40 text-white p-12 max-w-lg text-center backdrop-blur-none border-white/20 border">
             <h1 className="text-4xl font-light tracking-tight mb-4">About Us</h1>
             <div className="w-20 h-[1px] bg-white mx-auto"></div>
           </div>

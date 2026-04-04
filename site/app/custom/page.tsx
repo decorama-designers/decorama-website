@@ -26,6 +26,8 @@ export default function CustomDesignsPage() {
     { id: 17, image: "/custom_designs/IMG_9618-1024x1024.jpg" },
     { id: 18, image: "/custom_designs/IMG_9944-1024x768.jpg" },
     { id: 19, image: "/custom_designs/Long-Island.jpg" },
+    { id: 20, image: "/custom_designs/WhatsApp Image 2026-04-04 at 21.59.23.jpeg" },
+
   ];
 
   const handleNext = (e: React.MouseEvent) => {
@@ -48,13 +50,13 @@ export default function CustomDesignsPage() {
         <div className="absolute inset-0">
           <img
             src="/custom_designs/Deco-images-2017-a.jpg"
-            alt="Custom Designs"
+            alt="Exclusive Range"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-black/60 text-white p-12 max-w-xl text-center backdrop-blur-sm border-white/20 border">
+          <div className="bg-black/40 text-white p-12 max-w-xl text-center border-white/20 border">
             <h1 className="text-4xl font-light tracking-tight mb-4">Exclusive Range</h1>
             <div className="w-20 h-[1px] bg-white mx-auto mb-4"></div>
             <p className="text-sm font-light leading-relaxed">
