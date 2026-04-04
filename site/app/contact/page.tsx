@@ -15,7 +15,7 @@ export default function ContactPage() {
       </section>
 
       <section className="container mx-auto px-4 pt-12 pb-20">
-        <div className="text-sm text-gray-500 font-light space-y-1 pt-2 mb-12">
+        <div className="text-sm text-gray-500 font-light space-y-1 pt-2 mb-12 max-w-5xl mx-auto">
           {/* Contact */}
           <p>Tel.</p>
             <p>
